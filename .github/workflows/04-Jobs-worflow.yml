@@ -9,10 +9,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v5
 
-    -  name: "Echo Hello world"
-       run: echo " Welcome to my github actions workflow "
+    -  name: "Print report.txt"
+       run: |
+        echo "This is the report" > report.txt
+        ls -ltra
+        cat report.txt
 
-    -  name: "Echo Hello world"
+    -  name: "Echo Statement"
        run: sleep 30
 
   Second_print_job:
@@ -23,8 +26,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v5
 
-    -  name: "Echo Hello world"
-       run: echo " Welcome to my github actions workflow "
+    -  name: "print report.txt"
+       run: cat report.txt
 
-    -  name: "Echo Hello world"
+    -  name: "Echo Statement"
        run: sleep 30
