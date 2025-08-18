@@ -1,4 +1,4 @@
-name: "My Second workflow"
+name: "Variable workflow"
 on: push
 jobs:
   print_job:
