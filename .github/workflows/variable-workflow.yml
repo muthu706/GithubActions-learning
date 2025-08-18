@@ -1,18 +1,46 @@
 name: "Variable workflow"
 on: push
 jobs:
-  print_job:
+  First_print_job:
     name: "My first jobs"
     runs-on: ubuntu-latest
-
+    env:
+        USERNAME: "Vinoth"
+        PASSWORD: "abcd@111"
+    
     steps:
     - name: Checkout
       uses: actions/checkout@v5
 
-    - name: Environment Variable
-      env:
+    - name: Environment Variable 1st time
+      run: |
+        echo "username is $USERNAME"
+        echo "Password is $PASSWORD"
+
+    - name: Environment Variable 2nd time
+      run: |
+        echo "username is $USERNAME"
+        echo "Password is $PASSWORD"
+
+    -  name: "Echo Hello world"
+       run: echo " Welcome to my github actions workflow "
+  
+  Second_print_job:
+    name: "My Second jobs"
+    runs-on: ubuntu-latest
+    env:
         USERNAME: "Vinoth"
         PASSWORD: "abcd@111"
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+
+    - name: Environment Variable 1st time
+      run: |
+        echo "username is $USERNAME"
+        echo "Password is $PASSWORD"
+
+    - name: Environment Variable 2nd time
       run: |
         echo "username is $USERNAME"
         echo "Password is $PASSWORD"
