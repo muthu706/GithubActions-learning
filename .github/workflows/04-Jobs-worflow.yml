@@ -16,11 +16,17 @@ jobs:
         cat report.txt
 
     -  name: "Echo Statement"
-       run: sleep 30
+       run: sleep 15
+    
+    - uses: actions/upload-artifact@v4
+      with:
+        name: report-artifact
+        path: ./report.txt
 
   Second_print_job:
     name: "My Second jobs"
     runs-on: ubuntu-latest
+    needs: First_print_job
     
     steps:
     - name: Checkout
@@ -28,6 +34,10 @@ jobs:
 
     -  name: "print report.txt"
        run: cat report.txt
+    
+    - uses: actions/download-artifact@v4
+      with:
+        name: report-artifact
 
     -  name: "Echo Statement"
        run: sleep 30
