@@ -1,0 +1,30 @@
+name: "My jobs workflow"
+on: push
+jobs:
+  First_print_job:
+    name: "My first jobs"
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+
+    -  name: "Echo Hello world"
+       run: echo " Welcome to my github actions workflow "
+
+    -  name: "Echo Hello world"
+       run: sleep 30
+
+  Second_print_job:
+    name: "My Second jobs"
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+
+    -  name: "Echo Hello world"
+       run: echo " Welcome to my github actions workflow "
+
+    -  name: "Echo Hello world"
+       run: sleep 30
