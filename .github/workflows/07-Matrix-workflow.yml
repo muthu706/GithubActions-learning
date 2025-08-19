@@ -1,0 +1,25 @@
+name: "06 workflow concurrency"
+on: push
+
+jobs:
+    print_job:
+        name: "My Demo"
+        strategy:
+            matrix:
+                os: [ubuntu-latest,windows-latest,ubuntu-18.04,ubuntu-20.04]
+                images: [hello-world,alphine,busybox]
+                exclude:
+                    - os: windows-latest
+                      images: busybox
+                include:
+                    - os: ubuntu-latest
+                      images: nginx
+        runs-on: ${{ matrix.os }}
+        name: "Print Matrix on os"
+
+        steps:
+            -  name: "printirng docuker info on ${{ matrix.os }} with images ${{ matrix.images }}"
+               run: docuker info
+
+            -  name: sleep time
+               run: sleep 20
