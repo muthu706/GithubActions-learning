@@ -1,0 +1,20 @@
+name: "06 workflow concurrency"
+on:
+    pull_request:
+    workflow_dispatch:
+    push:
+
+jobs:
+    print_job:
+        name: "My Demo"
+        runs-on: ubuntu-latest
+        concurrency:
+            group: concurrency-group
+            cancel-in-progress: true
+
+        steps:
+            -  name: "Echo statement"
+               run: echo "Hello All"
+
+            -  name: "Waiting time"
+               run: sleep 500
