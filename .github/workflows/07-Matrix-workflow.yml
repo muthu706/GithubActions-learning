@@ -3,7 +3,7 @@ on: push
 
 jobs:
     print_job:
-        name: "My Demo"
+
         strategy:
             matrix:
                 os: [ubuntu-latest,windows-latest,ubuntu-18.04,ubuntu-20.04]
