@@ -19,7 +19,7 @@ jobs:
 
         steps:
             -  name: "printirng docuker info on ${{ matrix.os }} with images ${{ matrix.images }}"
-               run: docuker info
+               run: docker info
 
             -  name: sleep time
                run: sleep 20
